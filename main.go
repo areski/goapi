@@ -91,6 +91,10 @@ func NewActor(res http.ResponseWriter, req *http.Request) {
 }
 
 func init() {
+	initDb()
+}
+
+func initDb() {
 	db, err := gorm.Open("sqlite3", "/tmp/actors.db")
 	if err != nil {
 		log.Fatalf("Error opening database")
